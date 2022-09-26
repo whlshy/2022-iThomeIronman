@@ -4,4 +4,7 @@
 
 .header {
   background-color: antiquewhite;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 24px;
 }
