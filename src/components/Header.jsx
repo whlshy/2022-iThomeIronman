@@ -9,6 +9,18 @@ export default class Header extends Component {
     }
   }
 
+  componentDidMount() {
+    window.addEventListener('keydown', this.onKeyDown)
+  }
+
+  onKeyDown(e){
+    console.log('按下了鍵盤！')
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener('keydown', this.onKeyDown)
+  }
+
   render() {
     return (
       <div className="header">
