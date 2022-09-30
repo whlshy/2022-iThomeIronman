@@ -1,39 +1,80 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { AppBar, Box, Toolbar, IconButton, Typography, Button, InputBase } from '@mui/material'
+import AddIcon from '@mui/icons-material/Add'
+import { styled, alpha } from '@mui/material/styles'
+import SearchIcon from '@mui/icons-material/Search'
 
-export default class Header extends Component {
-  constructor(props) {
-    super(props)
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(3),
+    width: 'auto',
+  },
+}));
 
-    this.state = {
-      count: 0
-    }
-  }
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
 
-  componentDidMount() {
-    window.addEventListener('keydown', this.onKeyDown)
-  }
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '20ch',
+    },
+  },
+}));
 
-  onKeyDown(e){
-    console.log('按下了鍵盤！')
-  }
+const Header = (props) => {
 
-  componentWillUnmount(){
-    window.removeEventListener('keydown', this.onKeyDown)
-  }
-
-  render() {
-    return (
-      <div className="header">
-        <h3>{this.props.title}</h3>
-        <p
-          onClick={
-            e =>
-              this.setState({ count: this.state.count + 1 })
-          }
-        >
-          {this.state.count}
-        </p>
-      </div>
-    )
-  }
+  return (
+    <Box color="inherit" sx={{ flexGrow: 1 }}>
+      <AppBar position="static" sx={{ backgroundColor: "#000" }}>
+        <Toolbar>
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{ flexGrow: 1 }}
+          >
+            {props.title}
+          </Typography>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
+          <Box sx={{ flexGrow: 1 }} />
+          <Button variant="contained" color="success" startIcon={<AddIcon />}>
+            新增影片
+          </Button>
+        </Toolbar>
+      </AppBar>
+    </Box >
+  )
 }
+
+export default Header
