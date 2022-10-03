@@ -47,7 +47,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 const Header = (props) => {
 
   return (
-    <Box color="inherit" sx={{ flexGrow: 1 }}>
+    <Box color="inherit">
       <AppBar position="static" sx={{ backgroundColor: "#000" }}>
         <Toolbar>
           <Typography
