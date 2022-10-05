@@ -6,8 +6,9 @@ export default function VideoCard(props) {
   const { v, title } = props
 
   return (
-    <Link to={`/watch?v=${v}`}>
-      <Card sx={{ maxWidth: 480 }}>
+
+    <Card sx={{ maxWidth: 480, m: 1 }}>
+      <Link className='reset' to={`/watch?v=${v}`}>
         <CardMedia
           component="img"
           // height="360"
@@ -19,8 +20,9 @@ export default function VideoCard(props) {
             {title}
           </Typography>
         </CardContent>
-      </Card>
-    </Link>
+      </Link>
+
+    </Card>
 
   )
 }

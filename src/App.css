@@ -28,3 +28,9 @@
   -webkit-box-orient: vertical;
   white-space: normal;
 }
+
+.reset{
+  text-decoration: none;
+  color: #000;
+  outline: none;
+}
