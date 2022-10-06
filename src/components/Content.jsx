@@ -2,13 +2,14 @@ import React from 'react'
 import { Box } from '@mui/material'
 import { Route, Switch, Redirect } from 'react-router-dom'
 import HomePage from './Main/HomePage'
+import WatchPage from './Main/WatchPage'
 
 export default function Main() {
   return (
     <Box sx={{ bgcolor: '#999', flex: "1 1 auto" }}>
       <Switch>
         <Route exact path="/" component={HomePage}></Route>
-        <Route exact path="/watch">影片標記</Route>
+        <Route exact path="/watch" component={WatchPage}></Route>
         <Redirect to="/" />
       </Switch>
     </Box>
