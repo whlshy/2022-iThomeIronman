@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, Fragment } from 'react'
 
 export default function YouTubeIframe(props) {
   const { v, t, setPlayer, onPlayerReady, onPlayerStateChange, onPlaybackQualityChange, playerid, player } = props
@@ -19,11 +19,10 @@ export default function YouTubeIframe(props) {
   // 開始時間改變時，跳轉到該時間
   useEffect(() => {
 
-    !!player &&
-      player.seekTo(t)
+    
   }, [t])
 
-  const loadYTApi = () => {
+  const loadYTApi = async() => {
     if (!window.YT) { // If not, load the script asynchronously
       const tag = document.createElement('script');
       tag.src = 'https://www.youtube.com/iframe_api';
@@ -50,6 +49,6 @@ export default function YouTubeIframe(props) {
   };
 
   return (
-    <></>
+    <Fragment></Fragment>
   )
 }

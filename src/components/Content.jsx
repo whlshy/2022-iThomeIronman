@@ -8,8 +8,8 @@ export default function Main() {
   return (
     <Box sx={{ bgcolor: '#999', flex: "1 1 auto" }}>
       <Switch>
+        <Route path="/watch" component={WatchPage}></Route>
         <Route exact path="/" component={HomePage}></Route>
-        <Route exact path="/watch" component={WatchPage}></Route>
         <Redirect to="/" />
       </Switch>
     </Box>
