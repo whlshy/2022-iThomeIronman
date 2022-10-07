@@ -3,7 +3,7 @@ import { AppBar, Box, Toolbar, Typography, Button, InputBase } from '@mui/materi
 import AddIcon from '@mui/icons-material/Add'
 import { styled, alpha } from '@mui/material/styles'
 import SearchIcon from '@mui/icons-material/Search'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -57,10 +57,9 @@ const Header = (props) => {
             component="div"
             sx={{ flexGrow: 1 }}
           >
-            <Link to="/">
-            {props.title}
+            <Link className="reset white" to="/">
+              {props.title}
             </Link>
-            
           </Typography>
           <Search>
             <SearchIconWrapper>

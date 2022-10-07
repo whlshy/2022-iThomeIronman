@@ -12,7 +12,7 @@ export default function YouTubeIframe(props) {
     !!player &&
       player.loadVideoById({
         videoId: v,
-        startSeconds: parseFloat(t)
+        startSeconds: parseFloat(0)
       })
   }, [v])
 

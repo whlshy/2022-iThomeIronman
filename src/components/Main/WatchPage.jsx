@@ -2,14 +2,14 @@ import React, { useState } from 'react'
 import YouTubeIframe from '../elements/YouTubeIframe'
 
 export default function WatchPage(props) {
-    const { v } = props
+    const {  } = props
     const [player, setPlayer] = useState(null)
 
     return (
         <div>
             <div id="player"></div>
             <YouTubeIframe
-                v={v}
+                v={"Ga22mpTDS6A"}
                 t={0}
                 playerid="player"
                 player={player}
