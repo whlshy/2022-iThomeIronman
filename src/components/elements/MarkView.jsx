@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button, Box } from '@mui/material'
-import ReactMarkdown from 'react-markdown'
-import remarkGfm from 'remark-gfm'
+import MDEditor from '@uiw/react-md-editor'
 
 export default function MarkView(props) {
     const { sec, content, onDoubleClick } = props
@@ -12,12 +11,10 @@ export default function MarkView(props) {
             <Box
                 sx={{ border: "1px solid #000", p: 1, margin: "5px 0", borderRadius: "10px", backgroundColor: "#fff" }}
                 component="div"
-                onClick={onDoubleClick}
             >
-                <article  onClick={onDoubleClick}>
-                    <ReactMarkdown children={content} remarkPlugins={[remarkGfm]} />
-                </article >
-
+                <article onDoubleClick={e => onDoubleClick(e)}>
+                    <MDEditor.Markdown source={content} linkTarget="_blank" style={{ padding: 10 }} />
+                </article>
             </Box>
         </Box>
     )

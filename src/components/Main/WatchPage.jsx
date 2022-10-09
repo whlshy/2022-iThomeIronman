@@ -2,21 +2,7 @@ import React, { useState } from 'react'
 import YouTubeIframe from '../elements/YouTubeIframe'
 import { Box } from '@mui/material'
 import MarkView from '../elements/MarkView'
-
-const content = `A paragraph with *emphasis* and **strong importance**.
-
-> A block quote with ~strikethrough~ and a URL: https://reactjs.org.
-
-* Lists
-* [ ] todo
-* [x] done
-
-A table:
-
-| a | b |
-| --- | --- |
-|1|2|
-`
+import MarkPage from './MarkPage'
 
 export default function WatchPage(props) {
     const { } = props
@@ -38,12 +24,8 @@ export default function WatchPage(props) {
                     setPlayer={pl => setPlayer(pl)}
                 />
             </Box>
-            <Box sx={{ width: "30%" }} className="mark_container">
-                <MarkView
-                    sec={33}
-                    content={content}
-                    onDoubleClick={e => "雙擊"}
-                />
+            <Box sx={{ width: "30%", position: "relative" }} className="mark_container">
+                <MarkPage />
             </Box>
         </Box>
     )

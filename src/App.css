@@ -74,3 +74,10 @@
   background-color: #e0efef;
   border-left: 1px solid #000;
 }
+
+.md_editor{
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
