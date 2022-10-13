@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { Box } from '@mui/material'
 import VideoCard from '../VideoCard'
 
-export default function HomePage() {
-  const [data, setData] = useState(null)
+export default function HomePage(props) {
+  const { home, setData } = props
+  const { data } = home
 
   useEffect(() => {
     // 第一次進入HomePage.jsx時去取得資料

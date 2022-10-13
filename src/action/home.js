@@ -4,3 +4,7 @@ import action from '../lib/createAction'
 export const GET_DATA = "GET_DATA"
 // 設定function來傳遞資料
 export const getData = () => action("GET_DATA", {})
+
+
+export const SET_DATA = "SET_DATA"
+export const setData = (data) => action("SET_DATA", { data })

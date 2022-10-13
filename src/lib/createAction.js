@@ -1,4 +1,4 @@
-function action(type, ...payload) {
+function action(type, payload = {}) {
     return {
         type,
         ...payload

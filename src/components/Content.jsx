@@ -1,7 +1,7 @@
 import React from 'react'
 import { Box } from '@mui/material'
 import { Route, Routes, Navigate } from 'react-router-dom'
-import HomePage from './Main/HomePage'
+import HomePage from '../containers/Main/HomePage' // 更改成container所在地
 import WatchPage from './Main/WatchPage'
 
 export default function Main() {
