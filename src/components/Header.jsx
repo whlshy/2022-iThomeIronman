@@ -4,6 +4,7 @@ import AddIcon from '@mui/icons-material/Add'
 import { styled, alpha } from '@mui/material/styles'
 import SearchIcon from '@mui/icons-material/Search'
 import { Link } from 'react-router-dom'
+import AddVideoForm from './elements/AddVideoForm'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -47,6 +48,29 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Header = (props) => {
 
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const addVideo = async (form) => {
+    const { v, title } = form
+    const data = await fetch(`http://localhost:5000/api/Note`, {
+      body: JSON.stringify({ v, title }),
+      method: "POST",
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+    }).then(res => res.json())
+    handleClose()
+  }
+
   return (
     <Box color="inherit">
       <AppBar position="static" sx={{ backgroundColor: "#000" }}>
@@ -71,11 +95,12 @@ const Header = (props) => {
             />
           </Search>
           <Box sx={{ flexGrow: 1 }} />
-          <Button variant="contained" color="success" startIcon={<AddIcon />}>
+          <Button variant="contained" color="success" startIcon={<AddIcon />} onClick={handleClickOpen}>
             新增影片
           </Button>
         </Toolbar>
       </AppBar>
+      <AddVideoForm open={open} handleClose={handleClose} handleSummit={addVideo} />
     </Box >
   )
 }
