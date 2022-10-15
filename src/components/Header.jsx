@@ -47,7 +47,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Header = (props) => {
-
+  const { addVideo } = props
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -58,16 +58,8 @@ const Header = (props) => {
     setOpen(false);
   };
 
-  const addVideo = async (form) => {
-    const { v, title } = form
-    const data = await fetch(`http://localhost:5000/api/Note`, {
-      body: JSON.stringify({ v, title }),
-      method: "POST",
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-    }).then(res => res.json())
+  const handleAddVideo = async (form) => {
+    addVideo(form.v, form.title)
     handleClose()
   }
 
@@ -100,7 +92,7 @@ const Header = (props) => {
           </Button>
         </Toolbar>
       </AppBar>
-      <AddVideoForm open={open} handleClose={handleClose} handleSummit={addVideo} />
+      <AddVideoForm open={open} handleClose={handleClose} handleSummit={handleAddVideo} />
     </Box >
   )
 }
